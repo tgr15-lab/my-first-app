@@ -1,6 +1,6 @@
 # my-first-app
 
-A rock, paper, scissors game, with automated tests and continuous integration.
+A rock, paper, scissors game and a stocks dashboard, with automated tests and continuous integration.
 
 ## Setup
 
@@ -28,6 +28,20 @@ Install package dependencies:
 pip install -r requirements.txt
 ```
 
+## Configuration
+
+The stocks dashboard requires an AlphaVantage API key. Obtain a key using the [form](https://www.alphavantage.co/support/#api-key) or get one shared by the professor.
+
+Create a local ".env" file and store your environment variable in there:
+
+```sh
+# this is the ".env" file...
+
+ALPHAVANTAGE_API_KEY="______________"
+```
+
+The ".env" file is listed in the ".gitignore" file, so it is never uploaded to GitHub.
+
 ## Usage
 
 Example script:
@@ -46,6 +60,12 @@ python app/rps.py
 
 # alternative "modular style" command:
 python -m app.rps
+```
+
+Stocks dashboard:
+
+```sh
+python -m app.stocks
 ```
 
 ## Testing
