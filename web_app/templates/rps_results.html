@@ -4,10 +4,14 @@
 
     <h1>Results</h1>
 
-    <p>You chose: {{ user_choice }}</p>
-    <p>The computer chose: {{ computer_choice }}</p>
-    <h2>{{ outcome }}</h2>
+    <div class="card" style="max-width: 400px;">
+        <div class="card-body">
+            <p class="card-text">You chose: <strong>{{ user_choice }}</strong></p>
+            <p class="card-text">The computer chose: <strong>{{ computer_choice }}</strong></p>
+            <h2 class="card-title">{{ outcome }}</h2>
+        </div>
+    </div>
 
-    <a href="/rps/form">Play again</a>
+    <a href="/rps/form" class="btn btn-primary mt-3">Play again</a>
 
 {% endblock %}
