@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+    <h1>Results</h1>
+
+    <p>You chose: {{ user_choice }}</p>
+    <p>The computer chose: {{ computer_choice }}</p>
+    <h2>{{ outcome }}</h2>
+
+    <a href="/rps/form">Play again</a>
+
+{% endblock %}
