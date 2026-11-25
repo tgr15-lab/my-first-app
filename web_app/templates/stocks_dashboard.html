@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+    <h1>Stocks Dashboard: {{ symbol }}</h1>
+
+    <div id="stock-chart" class="mb-4"></div>
+
+    <h2>Latest Prices</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Open</th>
+                <th>High</th>
+                <th>Low</th>
+                <th>Close</th>
+                <th>Volume</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in rows %}
+                <tr>
+                    <td>{{ row["timestamp"] }}</td>
+                    <td>{{ "${:,.2f}".format(row["open"]) }}</td>
+                    <td>{{ "${:,.2f}".format(row["high"]) }}</td>
+                    <td>{{ "${:,.2f}".format(row["low"]) }}</td>
+                    <td>{{ "${:,.2f}".format(row["close"]) }}</td>
+                    <td>{{ "{:,}".format(row["volume"]|int) }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="/stocks/form" class="btn btn-primary">Look up another stock</a>
+
+    <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+    <script>
+        var dates = {{ dates | tojson }};
+        var prices = {{ prices | tojson }};
+        var trace = {x: dates, y: prices, type: "scatter", mode: "lines", name: "{{ symbol }}"};
+        var layout = {title: "{{ symbol }} Prices ({{ price_col }})", yaxis: {title: "Price (USD)"}};
+        Plotly.newPlot("stock-chart", [trace], layout, {responsive: true});
+    </script>
+
+{% endblock %}
