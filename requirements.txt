@@ -10,3 +10,4 @@ pytest
 
 # web app:
 flask
+gunicorn

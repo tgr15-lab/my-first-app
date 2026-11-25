@@ -86,3 +86,13 @@ flask run
 ```
 
 Then visit http://localhost:5000 in the browser.
+
+### Deployment
+
+The web app is deployed on Render, using this start command:
+
+```sh
+gunicorn "web_app:create_app()"
+```
+
+The `ALPHAVANTAGE_API_KEY` environment variable must be set on the server.
