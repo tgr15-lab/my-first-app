@@ -75,3 +75,14 @@ Run tests:
 ```sh
 pytest
 ```
+
+## Web App
+
+Run the web app:
+
+```sh
+export FLASK_APP=web_app
+flask run
+```
+
+Then visit http://localhost:5000 in the browser.
